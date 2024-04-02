@@ -13,13 +13,21 @@ app.use(express.json());
 
 //ACCESS CONTROL
 
-app.use(
-  cors({
-    origin: "https://www.audaxious.com",
-    methods: "GET,HEAD,POST",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://www.audaxious.com",
+//     methods: "GET,HEAD,POST",
+//     credentials: true,
+//   })
+// );
+
+const corsOptions = {
+  origin: ["https://www.audaxious.com", "http://localhost:8080"],
+  methods: "GET,HEAD,POST",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 //Configure app
 app.use(
